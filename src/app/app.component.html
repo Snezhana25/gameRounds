@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Mini-game</h1>
+
+  <div class="grid"> 
+    <app-input-form label="Speed (ms):">
+      <input type="number" [(ngModel)]="settings.speed" min="100" />
+    </app-input-form>
+
+    <app-input-form label="Squares in game:">
+      <input
+        type="number"
+        [(ngModel)]="settings.gameRounds"
+        min="1"
+        max="20"
+      />
+    </app-input-form>
+
+     <app-button
+      (clicked)="start()"
+      [disabled]="status.running"
+    >
+      Start
+    </app-button>
+    <app-button
+        *ngIf="status.running"
+        (clicked)="stopGame()"
+        [disabled]="!status.running"
+        >
+        Stop
+    </app-button>
+  </div>
+
+  <div class="score">
+    <span>Human: {{ status.humanScore }}</span>
+    <span>Computer: {{ status.computerScore }}</span>
+  </div>
+
+  <app-board
+    [gameField]="status.gameField"
+    (fieldClick)="handleFieldClick($event)"
+  ></app-board>
+
+  <app-modal
+    *ngIf="status.winner !== null"
+    [winner]="status.winner"
+    [humanScore]="status.humanScore"
+    [computerScore]="status.computerScore"
+    (close)="onModalClose()"
+  ></app-modal>
+</div>

@@ -1,0 +1,10 @@
+<div
+  class="board"
+>
+  <button
+    *ngFor="let field of gameField"
+    class="field"
+    [ngClass]="field.state"
+    (click)="onFieldClick(field.index)"
+  ></button>
+</div>

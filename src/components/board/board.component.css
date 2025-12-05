@@ -1,0 +1,26 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  width: 400px;
+  margin-top: 10px;
+}
+
+.field {
+  aspect-ratio: 1 / 1;
+  border: 1px solid #FEFFE8;
+  background-color: #234484;
+  cursor: pointer;
+}
+
+.field.active {
+  background-color: #F4BD03;
+}
+
+.field.hit {
+  background-color: #3F9E43;
+}
+
+.field.miss {
+  background-color: #A90201;
+}

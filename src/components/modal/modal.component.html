@@ -1,0 +1,11 @@
+<div class="wrap">
+  <div class="modal">
+    <h2>{{ winnerMessage }}</h2>
+    <p>Human: {{ humanScore }} | Computer: {{ computerScore }}</p>
+    <app-button
+      (clicked)="close.emit()"
+    >
+      OK
+    </app-button>
+  </div>
+</div>
